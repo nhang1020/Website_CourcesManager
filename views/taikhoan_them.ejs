@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+	
+	<link href='../css/nav.css' rel='stylesheet' type='text/css'>
+	<title><%= title %></title>
+	<style>
+		.card{
+			margin: auto;
+			color: rgb(59, 59, 59);
+			border: none;
+			border-radius: 15px;
+		}
+		.card-header{
+			font-weight: bold;
+			color: rgb(99, 97, 97);
+			text-align: center;
+			font-size: 15pt;
+		}
+		.card input[type="text"], input[type="email"], input[type="password"], input[type="file"]{
+			border-radius: 20px;
+		}
+		.card span{
+			border-radius: 20px; background-image: -webkit-linear-gradient(0deg, pink, lightblue);
+			font-size: 10pt;
+			font-weight: 500;
+		}
+	</style>
+</head>
+
+<body style="background-image: url('../images/bg_1.jpg'); background-repeat: no-repeat; background-attachment: fixed;
+background-size: 1366px 736px; overflow: scroll;">
+	
+	<!-- Navbar -->
+	<%- include('includes/navbar'); %>
+	
+	<!-- Card: Header and Footer -->
+	<div class="card col-7">
+		<div class="card-header" ><%= title %></div>
+		<div class="card-body">
+			<% if(typeof errors != 'undefined') { %>
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<ul class="mb-0">
+						<% errors.forEach(function(err){ %>
+							<li><%= err.msg %></li>	
+						<% }); %>
+					</ul>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			<% } %>
+			<form action="/taikhoan/them" method="post" enctype="multipart/form-data" class="needs-validation row" novalidate>
+				<div class="mb-3 col-6">
+					<label for="hovaten" class="form-label">Full name:</label>
+					<input type="text" class="form-control" id="hovaten" name="hovaten" required>
+				</div>
+				<div class="mb-3 col-6">
+					<label for="sdt" class="form-label">Number phone:</label>
+					<input type="text" class="form-control" id="sdt" name="sdt">
+				</div>
+				<div class="col-6">
+					<label for="email" class="form-label">Email:</label>
+					<div class="input-group mb-3">
+						<input type="email" class="form-control text" id="Email" name="email">
+						<span class="input-group-text" id="basic-addon2">example@gmail.com</span>
+					</div>
+				</div>
+				<div class="mb-3 col-6">
+					<label for="hinhanh" class="form-label">Avatar:</label>
+					<input type="file" class="form-control" id="hinhanh" name="hinhanh">
+				</div>
+				<div class="mb-3 col-6">
+					<label for="tendangnhap" class="form-label">User name:</label>
+					<input type="text" class="form-control" id="tendangnhap" name="tendangnhap" required>
+				</div>
+				<div class="mb-3 col-md-6 row">
+					<label class="form-label" for="kichhoat">Status:</label>
+					<div class="form-check col-md-6" >
+						<input id="checkbox-1-1" class="custom-checkbox" type="radio" name="quyenhan" id="quyenhan1" value="hocvien" <%= 'checked' %> required>
+						<label class="form-check-label" for="hocvien">Student</label>
+					</div>
+					<div class="form-check col-md-6">
+						<input id="checkbox-1-1" class="custom-checkbox" type="radio" name="quyenhan" id="quyenhan2" value="giangvien" required>
+						<label class="form-check-label" for="hocvien">Instructor</label>
+					</div>
+				</div>
+				<div class="mb-3 col-6">
+					<label for="matkhau" class="form-label">Password:</label>
+					<input type="password" class="form-control" id="matkhau" name="matkhau" required>
+				</div>
+				<div class="mb-3 col-6">
+					<label for="xacnhanmatkhau" class="form-label">Confirm password:</label>
+					<input type="password" class="form-control" id="xacnhanmatkhau" name="xacnhanmatkhau" required>
+				</div>
+				
+				<button type="submit" class="btn btn-primary mt-5 col-4" style="margin: auto;">Create account</button>
+			</form>
+		</div>
+	</div>
+	
+	
+
+	<!-- Footer -->
+	<%- include('includes/footer'); %>
+	<%- include('includes/javascript'); %>
+</body>
+
+</html>

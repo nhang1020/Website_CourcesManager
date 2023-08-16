@@ -1,0 +1,110 @@
+
+<head>
+	<link href='./css/nav.css' rel='stylesheet' type='text/css'>
+	<link href="http://localhost:3000/aos-master/dist/aos.css" rel="stylesheet">
+	<script src="http://localhost:3000/aos-master/dist/aos.js"></script>
+</head>
+
+	<header class="navbar navbar-expand-lg navbar-light mb-3">
+		<div class="logo">
+			<a class="navbar-brand" href="/" id="logo"><i class="bi bi-star"></i> TN Courses</a>
+		</div>
+		<div class="container-fluid" data-aos="fade-down" data-aos-duration="1000">
+			
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a id="menu" class="nav-link active" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a id="menu" class="nav-link active" href="/courses">Courses</a>
+					</li>
+					<li class="nav-item">
+						<a id="menu" class="nav-link active" href="/giangvien">Instructor</a>
+					</li>
+					<li class="nav-item">
+						<a id="menu" class="nav-link active" href="#footer">About</a>
+					</li>
+					<% if(!session.id_taikhoan) { %>
+
+					<% } else { %>
+						<% if(session.quyenhan == 'admin') { %>
+							
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Manage
+								</a>
+								<ul class="dropdown-menu navbar-light bg-dark" id="dropmenu">
+									<li><a id="submenu" class="nav-link" href="/taikhoan"> Account</a></li>
+									<li><a id="submenu" class="nav-link" href="/chuyennganh"> Specialized</a></li>
+									<li><a id="submenu" class="nav-link" href="/khoahoc"> Courses</a></li>
+								</ul>
+							</li>
+						<% }else if(session.quyenhan == 'giangvien') {%>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									 Manage
+								</a>
+								<ul class="dropdown-menu navbar-light bg-dark" id="dropmenu">
+									<li><a id="submenu" class="nav-link" href="/khoahoc/cuagiangvien"> Courses</a></li>
+									<li><a id="submenu" class="nav-link" href="/khoahoc/cuagiangvien/danhsach"> Management</a></li>
+								</ul>
+							</li>
+						<% }%>
+						
+					<% } %>
+				</ul>
+				
+				<form action="/timkiem" method="post" class="d-flex">
+					<input class="form-control me-2" type="search" name="tukhoa" placeholder="Search...">
+					<button class="btn btn-outline-info" style="margin-right: 5px; background-color: transparent;" id="search" type="submit"><i class="bi bi-search"></i></button>
+				</form>
+				<div>
+					<% if(session.id_taikhoan) { %>
+						<li class="nav-item dropdown" style="list-style-type: none;" >
+							<a class="nav-link dropdown-toggle navbar-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<% if(session.hinhanh!=''){ %>
+									<img src="http://localhost:3000/uploads/<%= session.hinhanh %>" alt="Avatar"  width="30" height="30"> 
+								<% }else{ %> 
+									<img src="http://localhost:3000/images/noAva.png" alt="Avatar"  width="30" height="30"> 
+								<% } %> 
+								<%= session.hovaten %>
+							</a>
+							<ul class="dropdown-menu navbar-light bg-dark" id="dropmenu">
+								<% if(session.quyenhan == 'hocvien') {%>
+								<li class="dropdown-item">
+									<a id="submenu" class="nav-link" href="/khoahoc/hocvien">My courses</a>
+								</li>
+								<% } %> 
+								<li class="dropdown-item ">
+									<a id="submenu" class="nav-link" href="/taikhoan/cuatoi/<%= session.id_taikhoan %>">My account</a>
+								</li>
+								<li class="dropdown-item ">
+									<a id="submenu" class="nav-link" href="/dangxuat">Logout</a>
+								</li>
+							</ul>
+						</li>
+					<% } %>
+				</div>
+				
+			</div>
+		</div>
+	</header>
+<script>
+	AOS.init();
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            if($(this).scrollTop()){
+                $('header').addClass('sticky');
+            }else{
+                $('header').removeClass('sticky');
+            }
+        });
+    });
+</script>

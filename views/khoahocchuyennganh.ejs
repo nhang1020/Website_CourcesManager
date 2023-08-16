@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+	
+
+	<link href='http://localhost:3000/css/login.css' rel='stylesheet' type='text/css'>
+	<link href='http://localhost:3000/css/nav.css' rel='stylesheet' type='text/css'>
+	<link href='http://localhost:3000/css/index.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+		<!-- Navbar -->
+		<%- include('includes/navbar'); %>
+		
+		<!-- Card: Header and Footer -->
+
+	<div style="background-color: whitesmoke; padding-top: 30px;">
+        
+		<h5 style="text-align: left;" class="m-lg-2" id="ourcourses">Specialized: <i style="color: rgb(240, 96, 96);"><%= chuyennganh.tenchuyennganh %></i></h5>
+		<h1 style="text-align: center;" class="mb-5" id="ourcourses">Our courses</h1>
+		
+		<div class="col-md-9" style="margin: auto auto auto 200px;">
+		  	<div class="row" >
+			<% khoahoc.forEach(function(kh){%>
+				<div class=" m-lg-3 col-md-6" id="card" style="width: 18rem;">
+					<div class="row g-0 overflow-hidden flex-md-row position-relative">
+							<div class="d-flex flex-column position-static">
+								<img class="card-img-top" src="<%- firstImage(kh.mota) %>" width="100" height="175">
+								<div class="card-body">
+									<strong class="d-inline-block mb-2 text-primary"><%= kh.tenchuyennganh %></strong>
+									<p class="mb-0" id="tieude"><%= kh.tenkhoahoc %></p>
+									<p class="card-text mb-auto"><%= kh.hocphi %> <b style="color: rgb(7, 170, 61);">$</b></p>
+									
+								</div>
+								<a class="btn btn-primary" style="width: 150px; margin: auto;" id="signin" href="/chitiet/<%= kh.id_khoahoc %>">Tham gia</a>
+							</div>
+						<div class="col-auto d-none d-lg-block">
+					</div>
+				</div>
+				
+			</div>
+			<% }); %>
+		  	
+		</div>
+	</div>
+		
+		<!-- Footer -->
+		<%- include('includes/footer'); %>
+	</div>
+	
+	<%- include('includes/javascript'); %>
+</body>
+
+</html>
+
+
+

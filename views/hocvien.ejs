@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<meta charset="utf-8">
+		<style>
+			.error {
+				color: #ff0000;
+			}
+		</style>
+	</head>
+	<body>
+		<h4>
+			
+		</h4>
+		<div>
+			<table class="table table-bordered table-sm mb-0">
+				<thead>
+					<tr>
+						<th width="5%">#</th>
+						<th>Tên học viên</th>
+                        <th>Giới tính</th>
+                        <th>Ngày sinh</th>
+                        <th>SDT</th>
+                        <th>Email</th>
+                        <th>Địa chỉ</th>
+						<th width="5%">Xóa</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% var stt = 1; %>
+					<% hocvien.forEach(function(hv){ %>
+						<tr>
+							<th><%= stt++ %></th>
+							<td><%= hv.TenHocVien %></td>
+                            <td><%= hv.GioiTinh %></td>
+                            <td><%= hv.NgaySinh %></td>
+                            <td><%= hv.SDT %></td>
+                            <td><%= hv.Email %></td>
+                            <td><%= hv.DiaChi %></td>
+							<td class="text-center"><a href="hocvien/xoa/<%= cd.ID %>">Xóa</a></td>
+						</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+		<footer>Bản quyền &copy; 2022 bởi DH20PM.</footer>
+	</body>
+</html>

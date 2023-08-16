@@ -1,0 +1,30 @@
+.card{
+    margin: auto;
+    color: rgb(59, 59, 59);
+    border: none;
+    border-radius: 15px;
+}
+.card-header{
+    font-weight: bold;
+    color: rgb(99, 97, 97);
+    text-align: center;
+    font-size: 15pt;
+}
+.card input[type="text"], input[type="email"], input[type="password"], input[type="file"], input[type="number"], #quyenhan, #id_chuyennganh{
+    border-radius: 20px;
+
+}
+.card span{
+    border-radius: 20px; 
+    font-size: 10pt;
+    font-weight: 500;
+}
+label{
+    font-weight: 500;
+    
+}
+button[type=submit]{
+    width: auto;
+    margin: auto;
+}
+

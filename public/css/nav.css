@@ -1,0 +1,115 @@
+header{
+	
+    background-color: transparent;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    height: 80px;
+    font-weight: 700;
+    z-index: 100;
+}
+a#menu{
+    z-index: -1;
+    color: rgb(255, 255, 255);
+    font-size: 13pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a#menu:hover{
+    color: rgb(0, 222, 252);
+}
+header.sticky{
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+    z-index: 100;
+    position: fixed;
+    height: 60px;
+    box-shadow: 1px 1px 5px rgb(143, 143, 143); 
+    
+}
+header.sticky a#menu{
+    color: rgb(91, 91, 92);
+}
+header.sticky a#navbarDropdown{
+    color: rgb(0, 89, 255);
+}
+header a#navbarDropdown{
+    color: rgb(255, 254, 254);
+}
+input[type="search"]{
+    background-color: transparent;
+    width: 300px;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    border: 1px #d3d2d2 solid;
+}
+input[type="search"]::placeholder{
+    color: rgb(190, 190, 190);
+}
+
+input[type="search"]:focus{
+    background-color: rgb(248, 248, 248);
+    width: 350px;
+    color: rgb(39, 38, 38);
+    box-shadow: none;
+    opacity: 0.8;
+    border: 1px #c9c9c9 solid;
+}
+button[type="submit"]#search{
+    background-color: rgb(255, 255, 255);
+    opacity: 0.7;
+    border-radius: 50%;
+}
+
+a#logo{
+    font-weight: bold;
+    font-size: 21pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*background: -webkit-linear-gradient(0deg, #ffffff, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+    color: white;
+}
+.logo{
+    background-color: rgb(3, 127, 243); 
+    height: 80px;
+    width: 300px;
+    padding: 15px;
+    transition: all 0.5s ease-in-out;
+}
+header.sticky div.logo{
+    background-color: rgb(3, 127, 243); 
+    height: 60px;
+    width: 300px;
+    padding: 10px;
+}
+
+ul#menudrop{
+    transition: all 3s ease-in-out;
+}
+ul#dropmenu li{
+    height: 50px;
+    transition: all 0.3s ease-in-out;
+}
+ul#dropmenu li a:hover{
+    color: rgb(71, 70, 70);
+}
+ul#dropmenu li a{
+    color: rgb(255, 255, 255);
+    font-size: 12pt;
+}
+header img{
+    border: 2px white solid; border-radius: 50%;
+}
+
+header.sticky img{
+    border: none; border-radius: 50%; box-shadow: 1px 2px 5px rgb(22, 22, 22);
+}
+
+
+
+body{
+    background-image: url('http://localhost:3000/images/bg_2.jpg');
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size: 1920px 1200px; 
+    overflow: scroll;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+	<title><%= title %></title>
+	<link href='./css/login.css' rel='stylesheet' type='text/css'>
+	<style>
+		.intro{
+			color: white;
+			margin: 100px auto;
+		}
+		.intro h1{
+			font-size: 30pt;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-weight: bold;
+		}
+	</style>
+	<script>
+		function myFunction() {
+			var x = document.getElementById("matkhau");
+			if (x.type === "password") {
+				x.type = "text";
+			} else {
+				x.type = "password";
+			}
+		}
+	</script>
+</head>
+
+<body style="background-image: url('./images/bg_2.jpg'); background-repeat: no-repeat; background-attachment: fixed;
+background-size: 1920px 1200px; overflow: scroll;">
+	<div>
+		<!-- Navbar -->
+		<%- include('includes/navbar'); %>
+		<div class=""  style="float: left;">
+			<div class="col-md-8 intro">
+			  <span class="subheading"><b>Welcome to TN Courses</b></span>
+			  <h1 class="mb-4">We Are Online Platform For Make Learn</h1>
+			  <p class="caps">There are many courses about programing for people, which is the best platform to study a quick way</p>
+			  <p class="mb-0"><a href="#ourcourses" class="btn btn-primary">Our Course</a> <a href="" class="btn btn-white">Learn More</a></p>
+		  </div>
+		  </div>
+		<!-- Card: Header and Footer -->
+		<div class="login" class="login" data-aos="fade-left"
+		data-aos-duration="1500">
+			<div class="card-body" id="login">
+				<% if(typeof errors != 'undefined') { %>
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<ul class="mb-0">
+							<% errors.forEach(function(err){ %>
+								<li><%= err.msg %></li>	
+							<% }); %>
+						</ul>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				<% } %>
+				<h2><a id="link" href="/"> sign in </a></h2>
+  				<h2><a class="actived" id="link" href="/dangky"> sign up </a></h2>
+				  <form action="dangky" method="post" enctype="multipart/form-data" class="needs-validation row g-1" novalidate>
+						
+					<div class="mb-3 col-md-12">
+						<label for="hovaten" class="form-label fw-bold">Full name:</label>
+						<input type="text" class="text form-control" id="hovaten" name="hovaten" placeholder="Tran Thanh Nhang" required>
+					</div>
+					
+					<div class="mb-3">
+						<label for="email" class="form-label col-md-4 fw-bold">Email:</label>
+						<input type="email" class="text form-control" id="Email" name="email" placeholder="example.@gmail.com">
+					</div>
+					<div class="mb-3 col-md-12">
+						<label for="sdt" class="form-label fw-bold">Number phone:</label>
+						<input type="text" class="text form-control" id="sdt" name="sdt" placeholder="(+84)">
+					</div>
+					<div class="mb-3 col-md-12">
+						<label for="hinhanh" class="form-label fw-bold">Image:</label>
+						<input type="file" class="anh form-control" id="hinhanh" name="hinhanh">
+					</div>
+					<div class="mb-3 col-md-12 row g-2">
+						<label class="form-label fw-bold" for="kichhoat">Status:</label>
+						<div class="form-check col-md-6" >
+							<input id="checkbox-1-1" class="custom-checkbox" type="radio" name="quyenhan" id="quyenhan1" value="hocvien" <%= 'checked' %> required>
+							<label class="form-check-label" for="hocvien">Student</label>
+						</div>
+						<div class="form-check col-md-6">
+							<input id="checkbox-1-1" class="custom-checkbox" type="radio" name="quyenhan" id="quyenhan2" value="giangvien" required>
+							<label class="form-check-label" for="hocvien">Instructor</label>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="tendangnhap" class="form-label fw-bold">Username:</label>
+						<input type="text" class="text form-control" id="tendangnhap" name="tendangnhap" placeholder="" required>
+					</div>
+					<div class="mb-3">
+						<label for="matkhau" class="form-label fw-bold">Password:</label>
+						<input type="password" class="text form-control" id="matkhau" name="matkhau"  placeholder="" required>
+						<input id="checkbox-1-1" class="custom-checkbox" type="checkbox" onclick="myFunction()"><label>Show password</label>
+					</div>
+					<div class="mb-3">
+						<label for="xacnhanmatkhau" class="form-label fw-bold">Confirm password:</label>
+						<input type="password" class="text" id="xacnhanmatkhau" name="xacnhanmatkhau" placeholder="" required>
+					</div>
+					<div class="text-center" >
+						<button type="submit" class="btn btn-primary col-md-5" id="signin">Sign up</button>
+					</div>
+				</form>
+			</div>
+		
+
+		
+		<!-- Footer -->
+		<%- include('includes/footer'); %>
+	</div>
+	
+	<%- include('includes/javascript'); %>
+</body>
+
+</html>
